@@ -22,10 +22,11 @@ protocol CardOnFileDashboardPresentable: Presentable {
 
 protocol CardOnFileDashboardListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func cardOnFileDashboardDidTapAddPaymentMethod()
 }
 
 protocol CardOnFileDashboardInteractorDependency {
-    var cardOnFileRepository: CardOnFileRepository { get }
+    var cardsOnFileRepository: CardOnFileRepository { get }
 }
 
 final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashboardPresentable>, CardOnFileDashboardInteractable, CardOnFileDashboardPresentableListener {
@@ -52,7 +53,7 @@ final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashb
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
-        dependency.cardOnFileRepository.cardOnFile.sink { methods in
+        dependency.cardsOnFileRepository.cardOnFile.sink { methods in
             let viewModels = methods.prefix(5).map(PaymentMethodViewModel.init)
             self.presenter.update(with: viewModels)
         }.store(in: &cancellables)
@@ -63,5 +64,11 @@ final class CardOnFileDashboardInteractor: PresentableInteractor<CardOnFileDashb
         // TODO: Pause any business logic.
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
+    }
+    
+    func didTapAddPaymentMethod() {
+        // CardOnFile RiBs 보다는 부모인 FinanceHome 에서 뷰 전환을 하는게 좋아보임.
+        // 그러기 위해서는 부모 RIBs에게 다시 해당 액션을 넘김 ( Interactor 끼리 통신 )
+        listener?.cardOnFileDashboardDidTapAddPaymentMethod()
     }
 }
