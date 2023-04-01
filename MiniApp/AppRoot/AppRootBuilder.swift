@@ -7,8 +7,18 @@ protocol AppRootDependency: Dependency {
 }
 
 final class AppRootComponent: Component<AppRootDependency>, AppHomeDependency, FinanceHomeDependency, ProfileHomeDependency  {
-  
+    var cardOnFileRepository: CardOnFileRepository
+    var superPayRepository: SuperPayRepository
   // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    init(
+        dependency: AppRootDependency,
+        cardOnFileRepository: CardOnFileRepository,
+        superPayRepository: SuperPayRepository
+    ) {
+        self.cardOnFileRepository = cardOnFileRepository
+        self.superPayRepository = superPayRepository
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
@@ -24,7 +34,11 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
   }
   
   func build() -> (launchRouter: LaunchRouting, urlHandler: URLHandler) {
-    let component = AppRootComponent(dependency: dependency)
+    let component = AppRootComponent(
+        dependency: dependency,
+        cardOnFileRepository: CardOnFileRepositoryImp(),
+        superPayRepository: SuperPayRepositoryImp()
+    )
     
     let tabBar = RootTabBarController()
     

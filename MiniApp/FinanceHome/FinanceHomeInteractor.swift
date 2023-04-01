@@ -20,6 +20,7 @@ protocol FinanceHomeListener: AnyObject {
 }
 
 final class FinanceHomeInteractor: PresentableInteractor<FinanceHomePresentable>, FinanceHomeInteractable, FinanceHomePresentableListener, AdaptivePresentationControllerDelegate {
+    
     weak var router: FinanceHomeRouting?
     weak var listener: FinanceHomeListener?
     
@@ -70,6 +71,9 @@ final class FinanceHomeInteractor: PresentableInteractor<FinanceHomePresentable>
     }
     
     func topupDidClose() {
+        router?.detachTopup()
+    }
+    func topupDidFinish() {
         router?.detachTopup()
     }
 }

@@ -11,10 +11,12 @@ protocol EnterAmountDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
+    var superPayRepository: SuperPayRepository { get }
 }
 
 final class EnterAmountComponent: Component<EnterAmountDependency>, EnterAmountInteractorDependency {
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { dependency.selectedPaymentMethod }
+    var superPayReopsitory: SuperPayRepository{ dependency.superPayRepository }
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 

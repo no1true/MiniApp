@@ -82,6 +82,7 @@
 		11A30ABF29D018330047A1EE /* CardOnFileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30ABB29D018330047A1EE /* CardOnFileInteractor.swift */; };
 		11A30AC229D018640047A1EE /* CardOnFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30AC029D018630047A1EE /* CardOnFileCell.swift */; };
 		11A30AC329D018640047A1EE /* CardOnFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30AC129D018630047A1EE /* CardOnFileViewController.swift */; };
+		11A30AEA29D7EB7C0047A1EE /* SuperPayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A30AE929D7EB7C0047A1EE /* SuperPayRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		11A30ABB29D018330047A1EE /* CardOnFileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOnFileInteractor.swift; sourceTree = "<group>"; };
 		11A30AC029D018630047A1EE /* CardOnFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOnFileCell.swift; sourceTree = "<group>"; };
 		11A30AC129D018630047A1EE /* CardOnFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOnFileViewController.swift; sourceTree = "<group>"; };
+		11A30AE929D7EB7C0047A1EE /* SuperPayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperPayRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				1110132329C5B885001CF4A5 /* CardOnFileRepository.swift */,
+				11A30AE929D7EB7C0047A1EE /* SuperPayRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				11A30AAE29D012AA0047A1EE /* EnterAmountBuilder.swift in Sources */,
 				1110132C29C6BC8F001CF4A5 /* AddPaymentMethodRouter.swift in Sources */,
 				11A30AAC29D012AA0047A1EE /* EnterAmountRouter.swift in Sources */,
+				11A30AEA29D7EB7C0047A1EE /* SuperPayRepository.swift in Sources */,
 				1110130929C58583001CF4A5 /* SuperPayDashboardBuilder.swift in Sources */,
 				1125A9E329C46A3C00FD8957 /* ProfileHomeBuilder.swift in Sources */,
 				1110131A29C5AFBD001CF4A5 /* CardOnFileDashboardInteractor.swift in Sources */,
